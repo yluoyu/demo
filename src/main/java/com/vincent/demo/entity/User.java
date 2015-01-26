@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -50,7 +51,7 @@ public class User implements Serializable {
 	@Column(name = "UPDATE_TIME", nullable = true, length = 7)
 	private Date updateTime;
 	
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(
 		name = "T_USER_ROLE",
 		joinColumns = {
@@ -62,6 +63,18 @@ public class User implements Serializable {
 	)
 	private Set<Role> roles;
 
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinTable(
+		name = "T_USERINFO",
+		joinColumns = {
+			@JoinColumn(name = "USER_ID", nullable = false, updatable = false)
+		}, 
+		inverseJoinColumns = {
+			@JoinColumn(name = "USER_ID", nullable = false, updatable = false)
+		}
+	)
+	private UserInfo userInfo;
+	
 	public String getId() {
 		return id;
 	}
@@ -124,6 +137,14 @@ public class User implements Serializable {
 
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
+	}
+
+	public UserInfo getUserInfo() {
+		return userInfo;
+	}
+
+	public void setUserInfo(UserInfo userInfo) {
+		this.userInfo = userInfo;
 	}
 
 

@@ -72,7 +72,7 @@ Ext.define('Demo.view.AccountPwdPanel', {
 							var newPasswordVal = this.up('form').getForm()
 									.findField("newPassword").getValue();
 							Ext.Ajax.request({
-										//url : Inforstack.staff.app.contextRoot + '/staff/account/changepwd',
+										url : Demo.app.contextRoot + '/test/changePwd',
 										params : {
 											password : passwordVal,
 											newPassword : newPasswordVal

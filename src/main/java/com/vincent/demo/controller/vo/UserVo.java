@@ -22,6 +22,13 @@ public class UserVo {
 	
 	private String type;
 	
+	private String email;
+	
+	private String telephone;
+	
+	public UserVo(){
+		
+	}
 	public UserVo(User user){
 		this.setCreateTime(user.getCreateTime());
 		this.setUpdateTime(user.getUpdateTime());
@@ -29,12 +36,16 @@ public class UserVo {
 		this.setUsername(user.getUsername());
 		this.setType(user.getType());
 		this.setStatus(user.getStatus());
+		this.setEmail(user.getUserInfo().getEmail());
+		this.setTelephone(user.getUserInfo().getTelephone());
 	}
 	
 	public UserVo(UserInfo userInfo){
 		this.setId(userInfo.getId());
 		this.setCreateTime(userInfo.getCreateTime());
 		this.setUsername(userInfo.getUsername());
+		this.setEmail(userInfo.getEmail());
+		this.setTelephone(userInfo.getTelephone());
 	}
 	
 	public String getId() {
@@ -83,6 +94,22 @@ public class UserVo {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getTelephone() {
+		return telephone;
+	}
+
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
 	}
 
 }

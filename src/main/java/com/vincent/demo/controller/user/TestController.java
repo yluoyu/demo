@@ -3,12 +3,16 @@ package com.vincent.demo.controller.user;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.vincent.common.Util;
 import com.vincent.demo.controller.vo.JsonResponse;
 import com.vincent.demo.controller.vo.UserVo;
 import com.vincent.demo.entity.User;
@@ -56,5 +60,35 @@ public class TestController {
 		jr = ServerUtil.buildSuccessResponse(vo, null);
 		return jr;
 	}
+	
+	@RequestMapping(value = "/save", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public JsonResponse<? extends Object> save(HttpServletRequest request, HttpServletResponse resp,UserVo vo){
+		JsonResponse<?> jr = null;
+		UserInfo userInfo= userInfoService.findById(vo.getId());
+		userInfo.setEmail(vo.getEmail());
+		userInfo.setTelephone(vo.getTelephone());
+        userInfoService.save(userInfo);
+		jr = ServerUtil.buildSuccessResponse(null, null);
+		return jr;
+	}
+	
+	@RequestMapping(value = "/changePwd", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public JsonResponse<? extends Object> changePwd(HttpServletRequest request, HttpServletResponse resp,String name,String newPassword,String password){
+		JsonResponse<?> jr = null;
+	    name = ServerUtil.getUserName();
+		User user= userService.findByName(name);
+		if(!user.getPassword().equalsIgnoreCase(Util.getMD5Str(password))){
+			jr = ServerUtil.buildErrorResponse(null, "密码错误");
+		}else{
+			user.setPassword(Util.getMD5Str(newPassword));
+			userService.save(user);
+			jr = ServerUtil.buildSuccessResponse(null, null);
+		}
+		return jr;
+	}
+	
+	
 
 }

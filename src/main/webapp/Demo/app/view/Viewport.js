@@ -14,7 +14,6 @@ Ext.define('Demo.view.Viewport', {
         'Demo.view.TreeComboBox',
         'Demo.view.TreeGrid',
         'Demo.view.MultiComboBox',
-        'Demo.view.HistoryPanel',
         'Demo.view.QueryPanel',
         'Demo.view.TestPanel',
         'Demo.view.LogPanel',
@@ -64,11 +63,7 @@ Ext.define('Demo.view.Viewport', {
 				iconCls : 'user',
 				modules : [{
 							name : 'data_query',
-							title : '评分查询',
-							url : '#'
-						},{
-							name : 'history_query',
-							title : '查询历史',
+							title : 'TreeGrid',
 							url : '#'
 						}],
 				listeners : {
@@ -94,21 +89,7 @@ Ext.define('Demo.view.Viewport', {
 				}
 			});
 			items.push(userModule);
-			
-			var logModule = Ext.create('Demo.view.ModulePanel', {
-				title : '操作日志',
-				iconCls : 'info',
-				modules : [{
-							name : 'log_info',
-							title : '日志查询',
-							url : '#'
-						}],
-				listeners : {
-					scope : this,
-					moduleselect : this.onModuleSelect
-				}
-			});
-			items.push(logModule);
+
 		var infoModule = Ext.create('Demo.view.ModulePanel', {
 			title : '账户',
 			iconCls : 'info',
@@ -171,17 +152,8 @@ Ext.define('Demo.view.Viewport', {
 								itemId : 'data_query',
 								xtype : 'querypanel'
 							},{
-								itemId : 'history_query',
-								xtype : 'historypanel'
-							},{
 								itemId : 'user_manager',
 								xtype : 'userpanel'
-							}, {
-								itemId : 'system_settings',
-								html : 'staffconfigpanel'
-							}, {
-								itemId : 'log_info',
-								xtype : 'logpanel'
 							}, {
 								itemId : 'account_info',
 								xtype : 'accountinfopanel'

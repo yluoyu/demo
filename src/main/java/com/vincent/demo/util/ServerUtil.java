@@ -186,6 +186,7 @@ public class ServerUtil {
 				userName = ((UserDetails)o).getUsername();
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 		}		
 		return userName;
 	}

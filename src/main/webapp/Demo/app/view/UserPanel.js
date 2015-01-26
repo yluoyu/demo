@@ -265,9 +265,12 @@ Ext.define('Demo.view.UserPanel', {
 				handler : function() {
 					Ext.MessageBox.confirm('用户修改确认框', '确认要修改用户信息?', function(but) {
 						if (but == 'yes') {
-							
 							thisDetailPanel.userDetailPanel.form.submit({
-								
+								 url:  Demo.app.contextRoot + '/test/save',
+			                     method:'POST',  
+			                     success:function(){  
+			                        Ext.Msg.alert('提示',"提交数据");  
+			                    }  
 							})
 /*							var roles = Ext.getCmp('update_roles').items;
 							var role = "";

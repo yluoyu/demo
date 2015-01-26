@@ -36,4 +36,10 @@ public class UserServiceImpl implements UserService {
 		return userDao.findAll();
 	}
 
+	@Override
+	public void save(User u) {
+		userDao.save(u);
+		
+	}
+
 }

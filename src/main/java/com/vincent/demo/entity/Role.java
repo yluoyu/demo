@@ -11,6 +11,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "T_ROLE") 
 public class Role {
@@ -31,7 +32,7 @@ public class Role {
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy="roles")
 	private Set<User> users;
 
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(
 		name = "T_ROLE_AUTHORITY",
 		joinColumns = {

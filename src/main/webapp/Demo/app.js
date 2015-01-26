@@ -12,6 +12,6 @@ Ext.application({
     autoCreateViewport: true,
     init : function(){
     	Ext.QuickTips.init();
-    	this.contextRoot = '/FirstMavn';
+    	this.contextRoot = '/demo';
     }
 });
