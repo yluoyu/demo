@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+	<http pattern="/resource/**" security="none" />
+	<http pattern="/common/**" security="none" />
+
+	<http pattern="/user/(login|denied|failed|logout|invalid|expired)(/?)(\?.*){0,1}" request-matcher="regex" security="none" />
+	
+
+	<security:http pattern="/user/**" auto-config="true" access-denied-page="/user/denied">
+		<security:form-login login-page="/user/login" login-processing-url="/user/dologin" authentication-failure-url="/user/failed" default-target-url="/page/index.html" always-use-default-target="true" />
+		<security:logout logout-url="/user/dologout" logout-success-url="/user/login" />
+		<security:session-management invalid-session-url="/user/invalid">
+			<security:concurrency-control expired-url="/user/expired" max-sessions="1" />
+		</security:session-management>
+		<custom-filter ref="securityFilter" before="FILTER_SECURITY_INTERCEPTOR" />
+		<!--<security:custom-filter before="FILTER_SECURITY_INTERCEPTOR" ref="securityFilter" /> <remember-me />-->
+	</security:http>
+	
+	<security:http pattern="/page/index**" auto-config="true" access-denied-page="/user/denied">
+		<security:form-login login-page="/user/login" login-processing-url="/user/dologin" authentication-failure-url="/user/failed" default-target-url="/page/index.html" always-use-default-target="true" />
+		<security:logout logout-url="/user/dologout" logout-success-url="/user/login" />
+		<security:session-management invalid-session-url="/user/invalid">
+			<security:concurrency-control expired-url="/user/expired" max-sessions="1" />
+		</security:session-management>
+	    <custom-filter ref="securityFilter" before="FILTER_SECURITY_INTERCEPTOR" />
+		<!-- <security:custom-filter before="FILTER_SECURITY_INTERCEPTOR" ref="securityFilter" /> -->
+	</security:http>
+
+    <!--  自定义securityFilter
+	<beans:bean id="securityFilter" class="com.vincent.demo.web.auth.SecurityFilter">
+		<beans:property name="authenticationManager" ref="authenticationManager" />
+		<beans:property name="accessDecisionManager" ref="accessDecisionManager" />
+		<beans:property name="securityMetadataSource" ref="securityMetadataSource" />
+		<beans:property name="rejectPublicInvocations" value="true" />
+	</beans:bean> -->
+
+   <!--  <authentication-manager alias="authenticationManager"/> 
+   
+    <beans:bean id="filterSecurityInterceptor" class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor">-->
+    <beans:bean id="securityFilter" class="com.vincent.demo.web.auth.SecurityFilter">
+	  <beans:property name="authenticationManager" ref="authenticationManager" />
+	  <beans:property name="accessDecisionManager" ref="accessDecisionManager" />
+	  <beans:property name="securityMetadataSource" ref="securityMetadataSource" />
+   </beans:bean>
+   
+   <!-- 自定义AuthenticationProvider   -->
+	<beans:bean id="org.springframework.security.authenticationManager" class="org.springframework.security.authentication.ProviderManager">
+		<beans:property name="providers">
+			<beans:list>
+				<beans:ref bean="authenticationProvider" />
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+	
+	<beans:alias name="org.springframework.security.authenticationManager" alias="authenticationManager" />
+
+	<beans:bean id="authenticationProvider" class="com.vincent.demo.web.auth.AuthenticationProvider">
+		<beans:property name="userDetailsService" ref="userDetailsService" />
+		<beans:property name="passwordEncoder" ref="passwordEncoder" />
+	</beans:bean> 
+	 <beans:bean id="authenticationProcessingFilterEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">  
+        <beans:property name="loginFormUrl" value="/user/login"></beans:property>  
+    </beans:bean>  
+
+	<beans:bean id="userDetailsService" class="com.vincent.demo.web.auth.UserDetailsService" />
+	<beans:bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder" /> 
+	<beans:bean id="accessDecisionManager" class="com.vincent.demo.web.auth.AccessDecisionManager" />
+	<beans:bean id="securityMetadataSource" class="com.vincent.demo.web.auth.SecurityMetadataSource" />
+</beans:beans>

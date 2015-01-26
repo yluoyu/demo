@@ -1,0 +1,55 @@
+{
+    "text": ".",
+    "children": [
+        {
+            "task": "类型一",
+            "duration": 13.25,
+            "user": "123456789",
+            "iconCls": "task-folder",
+            "status" : 1,
+            "expanded": true,
+            "children": [ 
+             {
+                    "task": "子类型1",
+                    "duration": 1.25,
+                    "user": "123456789",
+                    "leaf": true,
+                    "iconCls": "task"
+                }, {
+                    "task": "子类型2",
+                    "duration": 12,
+                    "user": "123456789",
+                     "leaf": true,
+                    "iconCls": "task"
+                }
+            ] 
+        }, {
+            "task": "类型二",
+            "duration": 2,
+            "user": "123456789",
+            "iconCls": "task-folder",
+            "children": [
+                {
+                    "task": "子类型1",
+                    "duration": 0.75,
+                    "user": "123456789",
+                    "iconCls": "task",
+                    "leaf": true
+                }, {
+                    "task": "子类型2",
+                    "duration": 3.75,
+                    "user": "123456789",
+                     "iconCls": "task",
+                    "leaf": true
+
+                }, {
+                    "task": "子类型3",
+                    "duration": 0.5,
+                    "user": "123456789",
+                     "iconCls": "task",
+                    "leaf": true
+                }
+            ]
+        }
+    ]
+}

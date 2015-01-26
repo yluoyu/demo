@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+body{
+	font-size:13px;
+	font-family:"微软雅黑" Arial;
+}
+
+.STYLE1 {font-size: 14px}
+
+table{
+	border-collapse:collapse;
+	cell-spacing:0;
+	cell-padding:0;
+}
+.STYLE2 {
+	font-size: 12px;
+	font-weight: bold;
+}
+.yiwuul{
+	margin:0;
+	padding:0;
+}
+.yiwuul li {
+	line-height:20px;
+	
+}
+.yiwuul li span{
+	
+}
+.STYLE3 {font-size: 12}
+
+table td{
+ line-height:17px;
+}

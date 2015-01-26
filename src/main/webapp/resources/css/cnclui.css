@@ -1,0 +1,98 @@
+@CHARSET "UTF-8";
+/**modification to easyui for bo**/
+
+.easyui-accordion ul,.navi_easyui_accordion ul{list-style-type:none;margin:0px; padding:10px;}
+.easyui-accordion ul li,.navi_easyui_accordion ul li{ padding:0px;}
+.easyui-accordion ul li span,.navi_easyui_accordion ul li span{line-height:24px;}
+.easyui-accordion ul li div,.navi_easyui_accordion ul li div{margin:2px 0px;padding-left:10px;padding-top:2px;border:1px dashed #FFF;}
+.easyui-accordion ul li div.hover,.navi_easyui_accordion ul li div.hover{border:1px dashed #99BBE8; background:#E0ECFF;cursor:pointer;}
+.easyui-accordion ul li div.hover span,.navi_easyui_accordion ul li div.hover span{color:#416AA3;}
+.easyui-accordion ul li div.selected,.navi_easyui_accordion ul li div.selected{border:1px solid #99BBE8; background:#E0ECFF;cursor:default;}
+.easyui-accordion ul li div.selected span,.navi_easyui_accordion ul li div.selected span{color:#416AA3; font-weight:bold;}
+
+.dicon {
+	padding: 2px 9px;
+	background: url(images/tabicons.png) no-repeat;
+}
+
+.dicon-sys {
+	background: url(images/directory.png) no-repeat;
+}
+
+.dicon-add {
+	background-position: -19px 0px;
+}
+
+.dicon-nav {
+	background-position: -100px -18px;
+}
+
+.dicon-users {
+	background-position: -100px -480px;
+}
+
+.dicon-role {
+	background-position: -360px -200px;
+}
+
+.dicon-set {
+	background-position: -380px -200px;
+}
+
+.dicon-log {
+	background-position: -380px -80px;
+}
+
+.dicon-search{
+	 background-position: -60px -260px;
+}
+
+.dicon-zoomin{
+	background:url(images/zoomin.gif) no-repeat;
+}
+.dicon-zoomout{
+	background:url(images/zoomout.gif) no-repeat;
+}
+.panel-body{
+	font-size:13px;
+	
+}
+.ie6 .easyui-accordion{
+	zoom:100%;
+	overflow: hidden;
+}
+
+.combobox-item-hover{
+	cursor:default;
+}
+
+.combobox-item{
+	padding-top:5px;
+}
+.datagrid-footer{
+	background-color:#FFE48D
+}
+.combo-panel{
+	height:auto;
+}
+.uibox-text,.uibox-select{
+  border: 1px solid #95B8E7;
+  background-color: #fff;
+  vertical-align: middle;
+  display: inline-block;
+  white-space: nowrap;
+  margin: 0;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  
+  font-size: 12px;
+  padding: 4px;
+  outline-style: none;
+  resize: none;
+  width:120px;
+}
+
+.navi_tabs .tabs{
+	border:0 none;
+}
