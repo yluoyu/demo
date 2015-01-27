@@ -25,7 +25,7 @@ public class Authority {
 	@Column(name = "DESCRIPTION", nullable = true, length = 64)
 	private String description;
 
-	@ManyToMany(fetch=FetchType.EAGER, mappedBy="authorityies")
+	@ManyToMany(fetch=FetchType.LAZY, mappedBy="authorityies")
 	private Set<Role> roles;
 
 	public String getId() {

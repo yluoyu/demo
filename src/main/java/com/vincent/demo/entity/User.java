@@ -51,7 +51,7 @@ public class User implements Serializable {
 	@Column(name = "UPDATE_TIME", nullable = true, length = 7)
 	private Date updateTime;
 	
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(
 		name = "T_USER_ROLE",
 		joinColumns = {
@@ -63,7 +63,7 @@ public class User implements Serializable {
 	)
 	private Set<Role> roles;
 
-	@OneToOne(fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.LAZY)
 	@JoinTable(
 		name = "T_USERINFO",
 		joinColumns = {
