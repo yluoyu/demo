@@ -10,6 +10,7 @@ Ext.define('Demo.view.Viewport', {
         'Demo.view.ModulePanel',
         'Demo.model.Module',
         'Demo.model.User',
+        'Demo.model.Resource',
         'Demo.model.Task',
         'Demo.view.TreeComboBox',
         'Demo.view.TreeGrid',
@@ -18,6 +19,7 @@ Ext.define('Demo.view.Viewport', {
         'Demo.view.TestPanel',
         'Demo.view.LogPanel',
         'Demo.view.UserPanel',
+        'Demo.view.ResourcePanel',
         'Demo.view.AccountPwdPanel',
         'Demo.view.AccountInfoPanel'
         
@@ -64,6 +66,10 @@ Ext.define('Demo.view.Viewport', {
 				modules : [{
 							name : 'data_query',
 							title : 'TreeGrid',
+							url : '#'
+						},{
+							name : 'resource_manager',
+							title : '资源管理',
 							url : '#'
 						}],
 				listeners : {
@@ -149,6 +155,9 @@ Ext.define('Demo.view.Viewport', {
 					title : '首页',
 					layout : 'card',
 					items : [{
+								itemId : 'resource_manager',
+								xtype : 'resourcepanel'
+					        },{
 								itemId : 'data_query',
 								xtype : 'querypanel'
 							},{

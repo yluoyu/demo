@@ -48,6 +48,7 @@
   <mappers>
     <mapper resource="mybatis/sqlxml/User.xml"/>
     <mapper resource="mybatis/sqlxml/Role.xml"/>
+     <mapper resource="mybatis/sqlxml/Resource.xml"/>
   </mappers>
 
 </configuration>

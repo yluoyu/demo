@@ -12,9 +12,9 @@ import org.springframework.web.util.WebUtils;
 
 import com.vincent.common.StringUtil;
 import com.vincent.common.Util;
+import com.vincent.common.log.Logger;
 import com.vincent.demo.entity.User;
 import com.vincent.demo.service.UserService;
-import com.vincent.demo.service.impl.UserServiceImpl;
 import com.vincent.demo.util.Constants;
 import com.vincent.demo.util.ServerUtil;
 
@@ -22,6 +22,8 @@ import com.vincent.demo.util.ServerUtil;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+	
+	public Logger log = new Logger(UserController.class);
 	@Autowired
 	private UserService userService;
 	

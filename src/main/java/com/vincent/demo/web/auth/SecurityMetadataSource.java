@@ -32,7 +32,7 @@ public class SecurityMetadataSource implements FilterInvocationSecurityMetadataS
 	@PostConstruct
 	public void loadResourceDefine() {
 		log.debug("Load defined resources");
-		List<SysResource> resources = sysResourceService.listAll();
+		List<SysResource> resources = sysResourceService.listAll(null,null);
 		if (resources != null) {
 			for (SysResource resource : resources) {
 				String url = resource.getUrl();

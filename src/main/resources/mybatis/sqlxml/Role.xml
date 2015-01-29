@@ -5,23 +5,24 @@
 
 <mapper namespace="Role">
   <resultMap type="com.vincent.demo.entity.Role" id="Role">
-    <id column="C_ID" jdbcType="INTEGER" property="id"/>
-    <result column="NAME" jdbcType="VARCHAR" property="name"/>
-    <result column="DESCRIPTION" jdbcType="VARCHAR" property="description"/>
-    <collection property="contentList"  resultMap="CommandContent.Content"/>
+    <id column="ROLE_ID" jdbcType="INTEGER" property="id"/>
+    <result column="ROLE_name" jdbcType="VARCHAR" property="name"/>
+    <result column="TYPE" jdbcType="VARCHAR" property="type"/>
   </resultMap>
   
-  <select id="queryCommandList" parameterType="com.imooc.bean.Command" resultMap="Command">
-    select a.ID C_ID,a.NAME,a.DESCRIPTION,b.ID,b.CONTENT,b.COMMAND_ID
-    from COMMAND a left join COMMAND_CONTENT b
+  <!--<select id="queryCommandList" parameterType="com.imooc.bean.Command" resultMap="Command">
+    select a.user_id C_ID,a.username name,a.password,c.role_id id,c.role_name 
+    from t_user a 
+    left join t_user_role b on a.user_id=b.user_id
+    join t_role c on c.role_id=b.role_id
     on a.ID=b.COMMAND_ID
-    <where>
+     <where>
     	<if test="name != null and !&quot;&quot;.equals(name.trim())">
 	    	and a.NAME=#{name}
 	    </if>
 	    <if test="description != null and !&quot;&quot;.equals(description.trim())">
 	    	and a.DESCRIPTION like '%' #{description} '%'
 	    </if>
-    </where>
-  </select>
+    </where> 
+  </select>-->
 </mapper>
