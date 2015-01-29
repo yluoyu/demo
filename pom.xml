@@ -197,6 +197,16 @@
 			<artifactId>aspectjweaver</artifactId>
 			<version>1.5.4</version>
 		</dependency>
+		<dependency>
+			<groupId>ant</groupId>
+			<artifactId>ant-apache-log4j</artifactId>
+			<version>1.6.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.2.8</version>
+		</dependency>
   </dependencies>
   <repositories>
 		<repository>
