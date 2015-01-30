@@ -10,6 +10,7 @@ Ext.define('Demo.view.Viewport', {
         'Demo.view.ModulePanel',
         'Demo.model.Module',
         'Demo.model.User',
+        'Demo.model.Document',
         'Demo.model.Task',
         'Demo.view.TreeComboBox',
         'Demo.view.TreeGrid',
@@ -18,6 +19,7 @@ Ext.define('Demo.view.Viewport', {
         'Demo.view.TestPanel',
         'Demo.view.LogPanel',
         'Demo.view.UserPanel',
+        'Demo.view.DocumentPanel',
         'Demo.view.AccountPwdPanel',
         'Demo.view.AccountInfoPanel'
         
@@ -81,6 +83,10 @@ Ext.define('Demo.view.Viewport', {
 				modules : [{
 							name : 'user_manager',
 							title : '用户管理',
+							url : '#'
+						},{
+							name : 'document_manager',
+							title : '文件管理',
 							url : '#'
 						}],
 				listeners : {
@@ -149,8 +155,8 @@ Ext.define('Demo.view.Viewport', {
 					title : '首页',
 					layout : 'card',
 					items : [{
-								itemId : 'data_query',
-								xtype : 'querypanel'
+								itemId : 'document_manager',
+								xtype : 'documentpanel'
 							},{
 								itemId : 'user_manager',
 								xtype : 'userpanel'
@@ -162,7 +168,7 @@ Ext.define('Demo.view.Viewport', {
 								xtype : 'accountpwdpanel'
 							}]
 				});
-		this.mainPanel.getLayout().setActiveItem('data_query');
+		this.mainPanel.getLayout().setActiveItem('document_manager');
 		var pane = this.mainPanel.getLayout().getActiveItem();
 		if (pane != null && pane.onPaneActive) {
 			pane.onPaneActive();
