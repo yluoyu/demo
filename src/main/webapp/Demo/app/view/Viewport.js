@@ -88,6 +88,10 @@ Ext.define('Demo.view.Viewport', {
 							name : 'user_manager',
 							title : '用户管理',
 							url : '#'
+						},{
+							name : 'document_manager',
+							title : '文件管理',
+							url : '#'
 						}],
 				listeners : {
 					scope : this,
@@ -158,8 +162,8 @@ Ext.define('Demo.view.Viewport', {
 								itemId : 'resource_manager',
 								xtype : 'resourcepanel'
 					        },{
-								itemId : 'data_query',
-								xtype : 'querypanel'
+								itemId : 'document_manager',
+								xtype : 'documentpanel'
 							},{
 								itemId : 'user_manager',
 								xtype : 'userpanel'
@@ -171,7 +175,7 @@ Ext.define('Demo.view.Viewport', {
 								xtype : 'accountpwdpanel'
 							}]
 				});
-		this.mainPanel.getLayout().setActiveItem('data_query');
+		this.mainPanel.getLayout().setActiveItem('document_manager');
 		var pane = this.mainPanel.getLayout().getActiveItem();
 		if (pane != null && pane.onPaneActive) {
 			pane.onPaneActive();
