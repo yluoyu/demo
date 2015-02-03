@@ -60,6 +60,7 @@ public SysResource saveOne(SysResource sysr) {
 @Override
 public SysResource deleteOne(String id) {
 	 SqlSession sqlSession = this.getSqlSession(); 
+	 sqlSession.getMapper(null);
 	 sqlSession.insert("Resource.delete", id);
 	 sqlSession.commit();
 	return null;
