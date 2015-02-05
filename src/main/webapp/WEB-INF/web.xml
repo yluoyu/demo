@@ -21,6 +21,13 @@
 	<listener>
 		<listener-class>com.vincent.demo.web.context.ContextListener</listener-class>
 	</listener>
+	
+	<listener>
+		<listener-class>com.vincent.demo.listener.MyHttpSessionListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>com.vincent.demo.listener.MyServletContextListener</listener-class>
+	</listener>
     <!-- 配置过滤器，同时把所有的请求都转为utf-8编码 --> 
 	<filter>
 		<filter-name>encoding-filter</filter-name>
