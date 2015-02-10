@@ -31,6 +31,12 @@ public class ComputerEngineer {
 	}
 	
 	private void prepareHardwares(int cpuType,int mainboard){
+		this.cpu = CpuFactory.createCpu(cpuType);
 		
+		this.mainboard = MainboardFactory.createMainboard(mainboard);
+		
+		//测试组件
+		this.cpu.calculate();
+		this.mainboard.installCpu();
 	}
 }
