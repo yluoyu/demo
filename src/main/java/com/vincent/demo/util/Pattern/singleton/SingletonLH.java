@@ -9,7 +9,7 @@ package com.vincent.demo.util.Pattern.singleton;
 public class SingletonLH {
 
 	private SingletonLH(){
-		System.out.println("初始化");
+		System.out.println("初 始 化");
 	}
 	
 	private static SingletonLH single = null;
