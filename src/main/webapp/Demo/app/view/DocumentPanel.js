@@ -47,7 +47,7 @@ Ext.define('Demo.view.DocumentPanel', {
 								formBind : true,
 								disabled : true,
 								handler : function() {
-									thisPanel.store.getProxy().extraParams.name = encodeURI(this.up('form').getForm().findField("name").getValue()); 
+									//thisPanel.store.getProxy().extraParams.name = encodeURI(this.up('form').getForm().findField("name").getValue()); 
 									var name = encodeURI(this.up('form').getForm().findField("name").getValue());
 								}
 							},{
@@ -73,6 +73,7 @@ Ext.define('Demo.view.DocumentPanel', {
 		this.store = Ext.create('Ext.data.Store', {
 					pageSize : 10,
 					model : 'Demo.model.Document',
+					//model : 'Demo.model.User',
 					remoteSort : true,
 					proxy : {
 						type : 'ajax',
@@ -87,7 +88,12 @@ Ext.define('Demo.view.DocumentPanel', {
 						},
 						simpleSortMode : true
 					},
-					autoLoad:true
+					autoLoad:true,
+					listeners : {
+						load : function(store,records){
+							//console.log(records.length);
+						}
+					}
 				});
 		
 		this.checkSM = Ext.create('Ext.selection.CheckboxModel',{
@@ -114,7 +120,7 @@ Ext.define('Demo.view.DocumentPanel', {
 					columns : [{
 								text : '编号',
 								hidden : true,
-								hideable : false,
+								//hideable : false,
 								dataIndex : 'id',
 								width : 150,
 								name : 'id'
@@ -132,7 +138,7 @@ Ext.define('Demo.view.DocumentPanel', {
 								text : '点击下载',
 								dataIndex : 'id',
 								flex : 1,
-								name : 'path',
+								name : 'down',
 								renderer : function(value){
 									 return '<a href="'+Demo.app.contextRoot+'/document/download?id='+value+'"" >下载</a>'
 								}
@@ -152,6 +158,6 @@ Ext.define('Demo.view.DocumentPanel', {
 	},
 
 	onPaneActive : function() {
-		
+		this.store.load();
 	}
 });

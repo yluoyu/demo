@@ -12,6 +12,7 @@ Ext.define('Demo.view.Viewport', {
         'Demo.model.User',
         'Demo.model.Resource',
         'Demo.model.Task',
+        'Demo.model.Document',
         'Demo.view.TreeComboBox',
         'Demo.view.TreeGrid',
         'Demo.view.MultiComboBox',
@@ -19,6 +20,7 @@ Ext.define('Demo.view.Viewport', {
         'Demo.view.TestPanel',
         'Demo.view.LogPanel',
         'Demo.view.UserPanel',
+        'Demo.view.DocumentPanel',
         'Demo.view.ResourcePanel',
         'Demo.view.AccountPwdPanel',
         'Demo.view.AccountInfoPanel'
