@@ -11,6 +11,9 @@ public class MyServletRequestListener implements ServletRequestListener {
 	public void requestDestroyed(ServletRequestEvent sre) {
 
 		System.out.println("ServletRequest : Destroyed");
+		String ip = sre.getServletRequest().getRemoteAddr();
+		int port = sre.getServletRequest().getRemotePort();
+		System.out.println("IP:"+ ip + ":"+port);
 	}
 
 	@Override
