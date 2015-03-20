@@ -22,6 +22,7 @@
 		<context:exclude-filter type="regex" expression="org.springframework.stereotype.Service"/>
 		<context:exclude-filter type="regex" expression="org.springframework.stereotype.Repository"/>
 	</context:component-scan>
+	<aop:aspectj-autoproxy/> 
     <!-- 配置数据库连接 -->  
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>  
@@ -29,6 +30,7 @@
         <property name="username" value="root"/>  
         <property name="password" value=""/>  
     </bean>  
+   
      <!-- 配置hibernate相关信息 -->  
      <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">  
         <property name="dataSource" ref="dataSource"/>  

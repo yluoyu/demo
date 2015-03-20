@@ -8,6 +8,7 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 
 public class MyServletFilter implements Filter{
 
@@ -20,9 +21,9 @@ public class MyServletFilter implements Filter{
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
-		System.out.println("berfor");
+		HttpServletRequest hr =(HttpServletRequest) request;
+		System.out.println("request:" + hr.getRequestURI());
 		chain.doFilter(request, response);
-		System.out.println("after");
 		// TODO Auto-generated method stub
 		
 	}

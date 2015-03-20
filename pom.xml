@@ -192,7 +192,7 @@
 		<dependency>
 			<groupId>aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
-			<version>1.5.4</version>
+			<version>1.7.2</version>
 		</dependency>
 		<dependency>
 			<groupId>ant</groupId>
