@@ -38,6 +38,20 @@
 	
 	    <!-- 配置过滤器，同时把所有的请求都转为utf-8编码 --> 
 	<filter>
+		<filter-name>my-filter</filter-name>
+		<filter-class>com.vincent.demo.filter.MyServletFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>my-filter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>  
+	
+	    <!-- 配置过滤器，同时把所有的请求都转为utf-8编码 --> 
+	<filter>
 		<filter-name>OpenSessionInViewFilter</filter-name>
 		<filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>
 		<init-param>

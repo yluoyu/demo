@@ -1,5 +1,6 @@
 package com.vincent.demo.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -16,7 +17,7 @@ import org.hibernate.annotations.GenericGenerator;
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "T_USERINFO") 
-public class UserInfo {
+public class UserInfo implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@GenericGenerator(name = "paymentableGenerator", strategy = "native")
